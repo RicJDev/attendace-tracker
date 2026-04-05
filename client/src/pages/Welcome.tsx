@@ -3,11 +3,19 @@ import { NavLink } from 'react-router'
 export function Welcome() {
   return (
     <>
-      <h1>Hola Ingeniero Profesor</h1>
+      <h2>Hola Ingeniero Profesor</h2>
       <nav>
-        <NavLink to='daily'>Empezar registro diario</NavLink>
-        <NavLink to='students'>Ver listado de estudiantes</NavLink>
-        <NavLink to='history'>Ver historial de registros</NavLink>
+        <ul>
+          <li>
+            <NavLink to='daily'>Empezar registro diario</NavLink>
+          </li>
+          <li>
+            <NavLink to='history'>Ver historial de registros</NavLink>
+          </li>
+          <li>
+            <NavLink to='students'>Ver listado de estudiantes</NavLink>
+          </li>
+        </ul>
       </nav>
     </>
   )
