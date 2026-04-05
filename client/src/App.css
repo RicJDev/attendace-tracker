@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  min-height: 100vh;
+  max-width: 100vw;
+  place-items: center;
+}
+
+.container nav {
+  display: flex;
+  flex-direction: column;
+}
