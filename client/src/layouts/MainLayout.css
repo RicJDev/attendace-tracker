@@ -2,11 +2,18 @@
   display: grid;
   min-height: 100vh;
   max-width: 100vw;
-  grid-template-rows: 90px 1fr;
+  grid-template-rows: auto 1fr;
   place-items: center;
 }
 
 .container nav {
   display: flex;
   flex-direction: column;
+}
+
+.container header {
+  border-bottom: solid 1px red;
+  width: 100%;
+  height: fit-content;
+  text-align: center;
 }
