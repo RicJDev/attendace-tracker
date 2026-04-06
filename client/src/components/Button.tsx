@@ -5,8 +5,8 @@ export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <>
       <button
-        className='custom-button'
         {...props}
+        className={`custom-button ${props.className}`}
       ></button>
     </>
   )
