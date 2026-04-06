@@ -14,6 +14,8 @@
 .container main {
   position: relative;
   width: var(--main-width);
+  border: solid 2px var(--secondary);
+  border-top: 0;
   height: 100%;
   max-width: 80vw;
   display: flex;
