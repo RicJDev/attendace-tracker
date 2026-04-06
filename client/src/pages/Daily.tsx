@@ -1,5 +1,7 @@
+import './Daily.css'
 import type { Student } from '../types'
-// import { mockStudents } from '../mock/students'
+import { mockStudents } from '../mock/students'
+import { StudentList } from '../components/StudentList'
 
 interface DailyProps {
   students: Student[]
@@ -15,7 +17,8 @@ interface DailyProps {
 export function Daily({}: DailyProps) {
   return (
     <>
-      <h1>Hello from /daily</h1>
+      <h2>Registro diario</h2>
+      <StudentList students={mockStudents} />
     </>
   )
 }
