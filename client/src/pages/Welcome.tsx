@@ -1,22 +1,43 @@
-import { NavLink } from 'react-router'
+import './Welcome.css'
+import { Button } from '../components/Button'
+import { MainLayout } from '../layouts/MainLayout'
+import { useNavigate } from 'react-router'
 
 export function Welcome() {
+  const navigate = useNavigate()
+
   return (
-    <>
+    <MainLayout>
       <h2>Hola Ingeniero Profesor</h2>
-      <nav>
+
+      <nav className='welcome-nav'>
         <ul>
           <li>
-            <NavLink to='daily'>Empezar registro diario</NavLink>
+            <Button
+              className='welcome-button'
+              onClick={() => navigate('/daily')}
+            >
+              Empezar registro diario
+            </Button>
           </li>
           <li>
-            <NavLink to='history'>Ver historial de registros</NavLink>
+            <Button
+              className='welcome-button'
+              onClick={() => navigate('/history')}
+            >
+              Ver historial de registros
+            </Button>
           </li>
           <li>
-            <NavLink to='students'>Ver listado de estudiantes</NavLink>
+            <Button
+              className='welcome-button'
+              onClick={() => navigate('/students')}
+            >
+              Ver listado de estudiantes
+            </Button>
           </li>
         </ul>
       </nav>
-    </>
+    </MainLayout>
   )
 }

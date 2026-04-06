@@ -1,4 +1,9 @@
-interface DailyProps {}
+import type { Student } from '../types'
+// import { mockStudents } from '../mock/students'
+
+interface DailyProps {
+  students: Student[]
+}
 
 /*
 - Obtener el listado de estudiantes desde el servidor
