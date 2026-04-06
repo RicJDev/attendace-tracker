@@ -12,6 +12,7 @@
 }
 
 .container main {
+  position: relative;
   width: var(--main-width);
   height: 100%;
   max-width: 80vw;
@@ -19,5 +20,5 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  align-content: center;
+  justify-content: center;
 }

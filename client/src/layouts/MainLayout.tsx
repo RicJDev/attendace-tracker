@@ -1,14 +1,12 @@
 import './MainLayout.css'
 import { Header } from '../components/Header'
-import { Outlet } from 'react-router'
+import type { PropsWithChildren } from 'react'
 
-export function MainLayout() {
+export function MainLayout({ children }: PropsWithChildren) {
   return (
     <div className='container'>
       <Header />
-      <main>
-        <Outlet />
-      </main>
+      <main>{children}</main>
     </div>
   )
 }

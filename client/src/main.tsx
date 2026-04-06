@@ -5,9 +5,9 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import { Daily } from './pages/Daily.tsx'
 import { History } from './pages/History.tsx'
 import { Students } from './pages/Students.tsx'
-import { MainLayout } from './layouts/MainLayout.tsx'
 import { Welcome } from './pages/Welcome.tsx'
 import { Debug } from './pages/Debug.tsx'
+import { RouteLayout } from './layouts/RouteLayout.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -17,12 +17,12 @@ createRoot(document.getElementById('root')!).render(
           path='debug'
           element={<Debug />}
         />
-        
-        <Route element={<MainLayout />}>
-          <Route
-            index
-            element={<Welcome />}
-          />
+        <Route
+          index
+          element={<Welcome />}
+        />
+
+        <Route element={<RouteLayout />}>
           <Route
             path='daily'
             element={<Daily />}
