@@ -1,11 +1,12 @@
+import "./StudentCard.css"
 import type { Student as StudentType } from '../types'
 
-export function Student({ name, lastName }: StudentType) {
+export function StudentCard({ name, lastName, listIndex, id }: StudentType) {
   return (
-    <>
-      <p>
-        {name} {lastName}
-      </p>
-    </>
+    <div className='student-card'>
+      <p>Estudiante #{listIndex}</p>
+      <p>{id}</p>
+      <p>{name} {lastName}</p>
+    </div>
   )
 }

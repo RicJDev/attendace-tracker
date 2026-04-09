@@ -1,5 +1,5 @@
+import './StudentList.css'
 import type { Student as StudentType } from '../types'
-import { Student } from './Student'
 
 interface StudentListProps {
   students: StudentType[]
@@ -7,12 +7,25 @@ interface StudentListProps {
 
 export function StudentList({ students }: StudentListProps) {
   return (
-    <ul>
-      {students.map((student) => (
-        <li>
-          <Student {...student} />
-        </li>
-      ))}
-    </ul>
+    <div className='student-list'>
+      <table>
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+          </tr>
+        </thead>
+        <tbody>
+          {students.map(({ id, listIndex, name, lastName }) => (
+            <tr key={id}>
+              <td>{listIndex}</td>
+              <td>{name}</td>
+              <td>{lastName}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
