@@ -1,0 +1,18 @@
+.section-layout {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.section-layout header {
+  display: flex;
+  justify-content: center;
+}
+
+.section-layout article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
