@@ -1,0 +1,11 @@
+.button-panel {
+  margin-top: 12px;
+}
+
+.daily {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  gap: 12px;
+}
