@@ -14,6 +14,21 @@
   justify-content: space-around;
 }
 
+.main-header h1,
+.main-header a {
+  user-select: none;
+}
+
+.main-header a {
+  text-decoration: none;
+  color: inherit;
+  padding: 4px;
+}
+
+.main-header a:hover {
+  background: var(--secondary);
+}
+
 .main-header button {
   width: fit-content;
   height: fit-content;
