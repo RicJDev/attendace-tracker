@@ -1,5 +1,5 @@
-import type { Student } from "../types"
-import { mockStudents } from "../mock/students"
+import type { Student } from '../types'
+import { mockStudents } from '../mock/students'
 
 const SIMULATED_DELAY_MS = 800
 
