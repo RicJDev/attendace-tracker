@@ -11,8 +11,7 @@ export function SectionLayout({ name, children }: SectionLayoutProps) {
       <header>
         <h2>{name}</h2>
       </header>
-
-      <article>{children}</article>
+      {children}
     </div>
   )
 }

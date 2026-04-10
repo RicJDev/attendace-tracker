@@ -6,13 +6,7 @@
 }
 
 .section-layout header {
-  display: flex;
-  justify-content: center;
-}
-
-.section-layout article {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  text-align: center;
+  background: var(--secondary);
 }
