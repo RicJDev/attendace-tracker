@@ -8,7 +8,6 @@
 .student-list table {
   border-collapse: collapse;
   width: 100%;
-  max-width: 600px;
   background: var(--background);
   border-bottom: 2px solid var(--secondary);
 }
@@ -20,7 +19,7 @@
   text-align: left;
 }
 
-.student-list td:nth-child(1) {
+.student-list td {
   text-align: center;
 }
 
