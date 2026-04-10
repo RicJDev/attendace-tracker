@@ -17,12 +17,12 @@ createRoot(document.getElementById('root')!).render(
           path='debug'
           element={<Debug />}
         />
-        <Route
-          index
-          element={<Welcome />}
-        />
 
         <Route element={<RouteLayout />}>
+          <Route
+            index
+            element={<Welcome />}
+          />
           <Route
             path='daily'
             element={<Daily />}

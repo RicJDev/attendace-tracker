@@ -1,7 +1,9 @@
+import { SectionLayout } from '../layouts/SectionLayout'
+
 export function History() {
   return (
-    <>
-      <h1>Hello from /history</h1>
-    </>
+    <SectionLayout name='Historial De Registros'>
+      <h2>En desarrollo...</h2>
+    </SectionLayout>
   )
 }

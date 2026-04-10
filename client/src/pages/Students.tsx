@@ -1,7 +1,9 @@
+import { SectionLayout } from '../layouts/SectionLayout'
+
 export function Students() {
   return (
-    <>
-      <h1>Hello from /students </h1>
-    </>
+    <SectionLayout name='Listado De Estudiantes'>
+      <h2>En desarrollo...</h2>
+    </SectionLayout>
   )
 }

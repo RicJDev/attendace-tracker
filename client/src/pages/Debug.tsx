@@ -1,5 +1,4 @@
-import { StudentList } from '../components/StudentList'
-import { mockStudents } from '../mock/students'
+import { RouteLayout } from '../layouts/RouteLayout'
 import './Debug.css'
 
 export function Debug() {
@@ -11,7 +10,7 @@ export function Debug() {
       </header>
 
       <main>
-        <StudentList students={mockStudents} />
+        <RouteLayout />
       </main>
     </div>
   )
