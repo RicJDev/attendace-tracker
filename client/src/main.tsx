@@ -15,7 +15,11 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route
           path='debug'
-          element={<Debug />}
+          element={
+            <Debug>
+              <RouteLayout />
+            </Debug>
+          }
         />
 
         <Route element={<RouteLayout />}>

@@ -1,11 +1,12 @@
-.debug-container {
-  display: grid;
-  min-height: 100vh;
-  max-width: 100vw;
-  grid-template-rows: auto 1fr;
-  place-items: center;
-}
-
-.debug-container header {
+.debug-header {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  font-size: 32px;
+  padding: 8px;
+  color: rgba(255, 255, 255, 0.1);
+  border: solid 4px rgba(255, 255, 255, 0.1);
   text-align: center;
 }
