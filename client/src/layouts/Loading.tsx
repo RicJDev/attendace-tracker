@@ -6,10 +6,8 @@ interface LoadingProps {
 
 export function Loading({ message = 'Cargando...' }: LoadingProps) {
   return (
-    <>
-      <div className='loading-container'>
-        <p>{message}</p>
-      </div>
-    </>
+    <div className='loading-container'>
+      <p>{message}</p>
+    </div>
   )
 }
