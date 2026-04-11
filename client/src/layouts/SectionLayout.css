@@ -1,0 +1,12 @@
+.section-layout {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.section-layout header {
+  width: 100%;
+  text-align: center;
+  background: var(--secondary);
+}

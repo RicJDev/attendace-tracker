@@ -5,7 +5,7 @@ export interface Student {
   listIndex: number
 }
 
-export interface Attending {
+export interface Attendance {
   studendId: Student['id']
   date: Date
   status: 'justified' | 'attending' | 'absence'

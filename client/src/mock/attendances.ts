@@ -1,4 +1,4 @@
-import type { Attending } from '../types'
+import type { Attendance } from '../types'
 
 const getDate = (daysAgo: number): Date => {
   const date = new Date()
@@ -6,7 +6,7 @@ const getDate = (daysAgo: number): Date => {
   return date
 }
 
-export const mockAttendings: Attending[] = [
+export const mockAttendances: Attendance[] = [
   // Emma Johnson (S001)
   { studendId: 'S001', date: getDate(6), status: 'attending' },
   { studendId: 'S001', date: getDate(5), status: 'attending' },
