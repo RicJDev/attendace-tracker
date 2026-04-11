@@ -7,12 +7,12 @@ erDiagram
         int list_number
      }
 
-     Assistance {
+     Attending {
         string id PK
         string sutdent_id FK
         string date
         string status "present | absence | justified"
      }
 
-    Student ||--|{ Assistance: has
+    Student ||--|{ Attending: has
 ```
