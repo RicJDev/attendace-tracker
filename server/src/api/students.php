@@ -1,20 +1,7 @@
 <?php
 header("Content-Type: application/json");
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "attending_tracker";
-
-try {
-  $conn = new mysqli($servername, $username, $password, $dbname);
-} catch (mysqli_sql_exception $e) {
-  http_response_code(500);
-  echo json_encode([
-    "message" => "Internal Server Error: Could not connect to database."
-  ]);
-  exit;
-}
+require_once "../config/connection.php";
 
 $handler = match ($_SERVER["REQUEST_METHOD"]) {
   "GET" => function () use ($conn) {
@@ -76,5 +63,10 @@ $handler = match ($_SERVER["REQUEST_METHOD"]) {
   }
 };
 
-$handler();
+try {
+  $handler();
+} catch (mysqli_sql_exception $e) {
+  http_response_code(500);
+}
+
 $conn->close();
