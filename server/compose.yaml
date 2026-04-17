@@ -7,10 +7,12 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   phpMyAdmin:
     image: phpmyadmin:latest
@@ -24,14 +26,18 @@ services:
       PMA_HOST: db
 
   php-app:
-    image: php:8.2-apache
+    build: .
     container_name: attending_tracker_php_server
     ports:
-      - "8081:80"                     
+      - "8081:80"
     volumes:
       - ./src:/var/www/html:Z
+    environment:
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
     depends_on:
-      - db                            
+      - db
 
 volumes:
-  db_data:                            
+  db_data:
