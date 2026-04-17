@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 
 *.env
+auth.json
+
+vendor
+composer.phar
+
+db/seed-data.local.sql
+*.dump
