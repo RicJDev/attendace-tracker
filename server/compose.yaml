@@ -1,6 +1,6 @@
 services:
   db:
-    image: docker.io/mariadb:10.11
+    image: mariadb:10.11
     container_name: attending_tracker_db
     restart: always
     environment:
@@ -13,7 +13,7 @@ services:
       - db_data:/var/lib/mysql
 
   phpMyAdmin:
-    image: docker.io/phpmyadmin:latest
+    image: phpmyadmin:latest
     container_name: attending_tracker_phpmyadmin
     restart: always
     depends_on:
@@ -24,7 +24,7 @@ services:
       PMA_HOST: db
 
   php-app:
-    image: docker.io/php:8.2-apache
+    image: php:8.2-apache
     container_name: attending_tracker_php_server
     ports:
       - "8081:80"                     
