@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS asistencia, alumno_asig, profesor_asignatura, asignatura, carrera, profesor, alumnos, status, area;
-
 CREATE TABLE IF NOT EXISTS area (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
