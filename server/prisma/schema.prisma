@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Teacher {
+  id         Int       @id @default(autoincrement())
+  first_name String
+  last_name  String
+  sections   Section[]
+
+  @@map("TEACHER")
+}
+
+model Course {
+  id       Int       @id @default(autoincrement())
+  name     String
+  sections Section[]
+
+  @@map("COURSE")
+}
+
+model Section {
+  id             Int              @id @default(autoincrement())
+  section_number String
+  course_id      Int
+  teacher_id     Int
+  course         Course           @relation(fields: [course_id], references: [id])
+  teacher        Teacher          @relation(fields: [teacher_id], references: [id])
+  schedules      Schedule[]
+  sectionStudents SectionStudent[]
+
+  @@map("SECTION")
+}
+
+model Student {
+  id              Int              @id @default(autoincrement())
+  first_name      String
+  last_name       String
+  national_id     String           @unique
+  list_number     Int              @unique
+  sectionStudents SectionStudent[]
+  attendances     Attendance[]
+
+  @@map("STUDENT")
+}
+
+model SectionStudent {
+  id         Int     @id @default(autoincrement())
+  student_id Int
+  section_id Int
+  student    Student @relation(fields: [student_id], references: [id])
+  section    Section @relation(fields: [section_id], references: [id])
+
+  @@unique([student_id, section_id])
+  @@map("SECTION_STUDENT")
+}
+
+model Schedule {
+  id           Int      @id @default(autoincrement())
+  day_of_week  String
+  start_time   String   // HH:MM:SS
+  end_time     String   // HH:MM:SS
+  section_id   Int
+  section      Section  @relation(fields: [section_id], references: [id])
+
+  @@map("SCHEDULE")
+}
+
+model Attendance {
+  id           Int      @id @default(autoincrement())
+  date         DateTime // almacenado como YYYY-MM-DD
+  status       String
+  last_updated DateTime
+  student_id   Int
+  student      Student  @relation(fields: [student_id], references: [id])
+
+  @@map("ATTENDANCE")
+}

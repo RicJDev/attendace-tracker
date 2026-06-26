@@ -1,0 +1,69 @@
+-- CreateTable
+CREATE TABLE "TEACHER" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "COURSE" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "SECTION" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "section_number" TEXT NOT NULL,
+    "course_id" INTEGER NOT NULL,
+    "teacher_id" INTEGER NOT NULL,
+    CONSTRAINT "SECTION_course_id_fkey" FOREIGN KEY ("course_id") REFERENCES "COURSE" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "SECTION_teacher_id_fkey" FOREIGN KEY ("teacher_id") REFERENCES "TEACHER" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "STUDENT" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
+    "national_id" TEXT NOT NULL,
+    "list_number" INTEGER NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "SECTION_STUDENT" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "student_id" INTEGER NOT NULL,
+    "section_id" INTEGER NOT NULL,
+    CONSTRAINT "SECTION_STUDENT_student_id_fkey" FOREIGN KEY ("student_id") REFERENCES "STUDENT" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "SECTION_STUDENT_section_id_fkey" FOREIGN KEY ("section_id") REFERENCES "SECTION" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "SCHEDULE" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "day_of_week" TEXT NOT NULL,
+    "start_time" TEXT NOT NULL,
+    "end_time" TEXT NOT NULL,
+    "section_id" INTEGER NOT NULL,
+    CONSTRAINT "SCHEDULE_section_id_fkey" FOREIGN KEY ("section_id") REFERENCES "SECTION" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "ATTENDANCE" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "date" DATETIME NOT NULL,
+    "status" TEXT NOT NULL,
+    "last_updated" DATETIME NOT NULL,
+    "student_id" INTEGER NOT NULL,
+    CONSTRAINT "ATTENDANCE_student_id_fkey" FOREIGN KEY ("student_id") REFERENCES "STUDENT" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "STUDENT_national_id_key" ON "STUDENT"("national_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "STUDENT_list_number_key" ON "STUDENT"("list_number");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "SECTION_STUDENT_student_id_section_id_key" ON "SECTION_STUDENT"("student_id", "section_id");
