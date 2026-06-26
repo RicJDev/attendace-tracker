@@ -1,78 +1,65 @@
-## Esquema de la base de datos
+### Diagrama de la base de datos:
 
 ```mermaid
+---
+config:
+   layout: elk
+   elk:
+      nodePlacementStrategy: LINEAR_SEGMENTS
+---
+
 erDiagram
-    PROFESOR ||--o{ PROFESOR_ASIGNATURA : "imparte"
-    ASIGNATURA ||--o{ PROFESOR_ASIGNATURA : "es asignada"
-    CARRERA ||--o{ ASIGNATURA : "contiene"
-    AREA ||--o{ CARRERA : "agrupa"
-    ASIGNATURA ||--o{ ALUMNO_ASIG : "tiene inscritos"
-    ALUMNOS ||--o{ ALUMNO_ASIG : "cursa"
-    STATUS ||--o{ ASISTENCIA : "clasifica"
-    ASIGNATURA ||--o{ ASISTENCIA : "registra"
-    ALUMNOS ||--o{ ASISTENCIA : "asiste"
+   TEACHER {
+      int id PK
+      string first_name
+      string last_name
+   }
 
-    PROFESOR {
-        int id PK
-        string user
-        string password
-        string name
-        string lastname
-    }
+   COURSE {
+      int id PK
+      string name
+   }
 
-    PROFESOR_ASIGNATURA {
-        int id PK
-        int profesor_id FK
-        int asignatura_id FK
-        string carga
-    }
+   SECTION {
+      int id PK
+      string section_number
+      int course_id FK
+      int teacher_id FK
+   }
 
-    ASIGNATURA {
-        int id PK
-        string name
-        string code
-        string semester
-        int carrera_id FK
-    }
+   STUDENT {
+      int id PK
+      string national_id
+      string first_name
+      string last_name
+   }
 
-    CARRERA {
-        int id PK
-        string name
-        string code
-        int area_id FK
-    }
+   SECTION_STUDENT {
+      int id PK
+      int student_id FK
+      int section_id FK
+   }
 
-    AREA {
-        int id PK
-        string name
-        string code
-    }
+   SCHEDULE {
+      int id PK
+      string day_of_week
+      time start_time
+      time end_time
+      int section_id FK
+   }
 
-    ALUMNO_ASIG {
-        int id PK
-        int asig_id FK
-        int alumno_id FK
-    }
+   ATTENDANCE {
+      int id PK
+      date date
+      string status
+      datetime last_updated
+      int student_id FK
+   }
 
-    ALUMNOS {
-        int id PK
-        string cedula
-        string name
-        string lastname
-        int list_index
-    }
-
-    ASISTENCIA {
-        int id PK
-        string lapso
-        date fecha
-        int status_id FK
-        int asignatura_id FK
-        int alumno_id FK
-    }
-
-    STATUS {
-        int id PK
-        string tipo
-    }
+   COURSE ||--|{ SECTION : "has"
+   TEACHER ||--o{ SECTION : "teaches"
+   SECTION ||--o{ SECTION_STUDENT : "contains"
+   SECTION_STUDENT }o--|| STUDENT : "enrolls"
+   SECTION ||--|{ SCHEDULE : "follows"
+   STUDENT ||--o{ ATTENDANCE : "has"
 ```
