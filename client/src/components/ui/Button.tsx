@@ -1,36 +1,36 @@
 import type { ButtonHTMLAttributes } from 'react'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'alert'
+  variant?: 'primary' | 'secondary' | 'alert' | 'disabled'
 }
 
 export function Button({ variant = 'primary', ...rest }: ButtonProps) {
-  const base =
-    'transition-transform duration-150 ease-in-out active:scale-95 size-fit py-1 px-2 rounded-sm hover:cursor-pointer' // focus:outline-2 outline-offset-2 focus:outline-red-600/70
-
   switch (variant) {
     case 'primary':
       return (
         <button
-          className={`border border-blue-400 text-gray-100 bg-blue-800 font-bold
-            hover:bg-blue-700 ${base}`}
+          className='border-blue-400 text-gray-100 bg-blue-800 font-bold hover:bg-blue-700'
           {...rest}
         />
       )
     case 'secondary':
       return (
         <button
-          className={`border border-blue-800 text-blue-200 bg-gray-900 rounded-sm font-bold
-            hover:bg-gray-800 ${base}`}
+          className='bg-blue-900/30 border-blue-800/50 text-blue-300 font-bold hover:bg-blue-900/60'
           {...rest}
         />
       )
-
     case 'alert':
       return (
         <button
-          className={`border bg-red-700 border-red-400 text-rose-100 rounded-sm font-bold
-            hover:bg-red-600 ${base}`}
+          className='bg-red-700 border-red-400 text-rose-100 font-bold hover:bg-red-600'
+          {...rest}
+        />
+      )
+    case 'disabled':
+      return (
+        <button
+          className='border-gray-600 text-gray-400 bg-gray-700 font-bold hover:bg-none hover:cursor-not-allowed active:scale-none'
           {...rest}
         />
       )

@@ -1,1 +1,35 @@
 @import 'tailwindcss';
+
+@layer base {
+  h2 {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+
+  a {
+    text-decoration: underline;
+    color: var(--color-blue-100);
+    font-weight: var(--font-weight-bold);
+  }
+
+  a:hover {
+    color: var(--color-blue-300);
+    cursor: pointer;
+  }
+
+  button {
+    border: solid 1px;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition-property: transform;
+    width: fit-content;
+    height: fit-content;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:active {
+    scale: 95%;
+  }
+}

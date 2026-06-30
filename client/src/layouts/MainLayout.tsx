@@ -8,9 +8,11 @@ export function MainLayout({ children }: PropsWithChildren) {
     <Container>
       <Header />
 
-      <main className='flex-1 px-2 text-balance my-3 max-w-prose mx-auto text-blue-100 flex flex-col gap-2'>
-        {children}
-      </main>
+      <div className='flex-1 h-full w-full px-2'>
+        <main className='text-balance max-w-prose mx-auto text-blue-100 flex flex-col justify-center gap-2'>
+          {children}
+        </main>
+      </div>
 
       <Footer />
     </Container>

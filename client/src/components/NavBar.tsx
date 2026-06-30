@@ -1,5 +1,3 @@
-import { Link } from './ui/Link'
-
 interface NavBarProps {
   // todo: add a link[] prop
 }
@@ -7,10 +5,10 @@ interface NavBarProps {
 export function NavBar({}: NavBarProps) {
   return (
     <nav className='flex flex-wrap gap-2 justify-center'>
-      <Link href='/'>Home</Link>
-      <Link href='/'>Recent posts</Link>
-      <Link href='/'>FAQ's</Link>
-      <Link href='/'>About</Link>
+      <a href='/'>Home</a>
+      <a href='/'>Recent posts</a>
+      <a href='/'>FAQ's</a>
+      <a href='/'>About</a>
     </nav>
   )
 }

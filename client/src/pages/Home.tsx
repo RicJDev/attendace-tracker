@@ -1,4 +1,3 @@
-import { Link } from '../components/ui/Link'
 import { Button } from '../components/ui/Button'
 import { SimpleBox } from '../components/SimpleBox'
 import { MainLayout } from '../layouts/MainLayout'
@@ -6,86 +5,25 @@ import { MainLayout } from '../layouts/MainLayout'
 export function Home() {
   return (
     <MainLayout>
+      <h2>Buttons</h2>
+
+      <p>Estos son mis hermosos botones</p>
+
       <SimpleBox direction='row'>
-        <Button>Buy</Button>
+        <Button variant='primary'>Buy</Button>
         <Button variant='secondary'>Go to next</Button>
         <Button variant='alert'>Delete</Button>
+        <Button variant='disabled'>None</Button>
       </SimpleBox>
 
-      <h2 className='text-3xl font-bold'>Buttons</h2>
-
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        quibusdam pariatur nulla, eum fugiat voluptatum sint. Dicta dolore
-        libero, iusto labore, incidunt eaque quibusdam debitis doloribus omnis
-        animi accusamus magnam! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum mollitia culpa deleniti, ratione sunt tenetur
-        tempore repudiandae error. Aliquam facilis culpa beatae molestiae
-        nesciunt dolore suscipit, incidunt eum commodi voluptas.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        quibusdam pariatur nulla, eum fugiat voluptatum sint. Dicta dolore
-        libero, iusto labore, incidunt eaque quibusdam debitis doloribus omnis
-        animi accusamus magnam! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum mollitia culpa deleniti, ratione sunt tenetur
-        tempore repudiandae error. Aliquam facilis culpa beatae molestiae
-        nesciunt dolore suscipit, incidunt eum commodi voluptas. Lorem, ipsum
-        dolor sit amet consectetur adipisicing elit. Expedita, nobis voluptate,
-        dolores facere optio consequuntur laudantium impedit eius, modi
-        molestiae quisquam? Maxime neque porro soluta animi laudantium nemo
-        magnam odit! Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-        aut esse quo inventore, temporibus perferendis. Ex ducimus doloremque
-        maxime quis rem, aspernatur quas laudantium perferendis, atque sequi,
-        aliquam quia praesentium!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+        deserunt harum quis veritatis provident dolores eius esse illum nam
+        velit impedit eligendi, accusantium dolor dolorum corrupti vero animi
+        voluptate! Nesciunt.
       </p>
 
-      <SimpleBox>
-        <Link href='/'>I'm not malware</Link>
-        <Link href='/'>Trust in me</Link>
-        <Link href='/'>Click me!</Link>
-      </SimpleBox>
-
-      <h2 className='text-3xl font-bold'>Links</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        quibusdam pariatur nulla, eum fugiat voluptatum sint. Dicta dolore
-        libero, iusto labore, incidunt eaque quibusdam debitis doloribus omnis
-        animi accusamus magnam! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum mollitia culpa deleniti, ratione sunt tenetur
-        tempore repudiandae error. Aliquam facilis culpa beatae molestiae
-        nesciunt dolore suscipit, incidunt eum commodi voluptas.
-      </p>
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        quibusdam pariatur nulla, eum fugiat voluptatum sint. Dicta dolore
-        libero, iusto labore, incidunt eaque quibusdam debitis doloribus omnis
-        animi accusamus magnam! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum mollitia culpa deleniti, ratione sunt tenetur
-        tempore repudiandae error. Aliquam facilis culpa beatae molestiae
-        nesciunt dolore suscipit, incidunt eum commodi voluptas.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        quibusdam pariatur nulla, eum fugiat voluptatum sint. Dicta dolore
-        libero, iusto labore, incidunt eaque quibusdam debitis doloribus omnis
-        animi accusamus magnam! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum mollitia culpa deleniti, ratione sunt tenetur
-        tempore repudiandae error. Aliquam facilis culpa beatae molestiae
-        nesciunt dolore suscipit, incidunt eum commodi voluptas.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        quibusdam pariatur nulla, eum fugiat voluptatum sint. Dicta dolore
-        libero, iusto labore, incidunt eaque quibusdam debitis doloribus omnis
-        animi accusamus magnam! Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Illum mollitia culpa deleniti, ratione sunt tenetur
-        tempore repudiandae error. Aliquam facilis culpa beatae molestiae
-        nesciunt dolore suscipit, incidunt eum commodi voluptas.
-      </p>
-
-      <div className='flex justify-between py-2'>
+      <div className='flex justify-between py-2 mt-auto'>
         <Button variant='secondary'>Prev</Button>
         <Button variant='secondary'>Next</Button>
       </div>
