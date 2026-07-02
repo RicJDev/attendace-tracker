@@ -1,20 +1,19 @@
 import type { PropsWithChildren } from 'react'
-import { Container } from '../layouts/Container'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+
+import { SideBar } from '../components/SideBar'
 
 export function MainLayout({ children }: PropsWithChildren) {
   return (
-    <Container>
-      <Header />
+    <div className='bg-gray-950 min-h-screen flex text-gray-50 p-3 gap-3'>
+      <SideBar />
 
-      <div className='flex-1 h-full w-full px-2'>
-        <main className='text-balance max-w-prose mx-auto text-blue-100 flex flex-col justify-center gap-2'>
-          {children}
-        </main>
+      <div className='flex-1 bg-gray-900 p-3 flex flex-col rounded-sm gap-2'>
+        <nav className='flex h-12 justify-center items-center border-b border-b-gray-500'>
+          <h3>Hey</h3>
+        </nav>
+
+        <main className='flex-1 flex flex-col'>{children}</main>
       </div>
-
-      <Footer />
-    </Container>
+    </div>
   )
 }
