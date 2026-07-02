@@ -1,22 +1,38 @@
+import { useState } from 'react'
+import { Container } from '../layouts/Container'
 import { Button } from '../components/ui/Button'
-import { MainLayout } from '../layouts/MainLayout'
+import { Modal } from '../components/ui/Modal'
+import { NavLink } from 'react-router'
 
 export function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
-    <MainLayout>
-      <article className='flex-1'>
+    <Container>
+      <h1 className='text-4xl font-bold'>Attendance Tracker</h1>
+      <p className='text-gray-400'>
+        Bienvenido al sistema de registro de asistencias.
+      </p>
+
+      <NavLink to='/schedule'>Horario</NavLink>
+
+      <Button
+        variant='primary'
+        onClick={() => setIsModalOpen(true)}
+      >
+        Mensaje del sistema
+      </Button>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title='Aviso del sistema'
+      >
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus hic
-          aspernatur nemo suscipit illo eligendi vitae ipsam perspiciatis quos
-          vero voluptates blanditiis sint placeat, sequi ducimus, praesentium
-          necessitatibus? Inventore, perspiciatis!
+          Aquí se mostrarán mensajes relevantes del sistema, como
+          notificaciones, errores o confirmaciones.
         </p>
-      </article>
-      
-      <div className='flex justify-between'>
-        <Button variant='primary'>Prev</Button>
-        <Button variant='secondary'>Next</Button>
-      </div>
-    </MainLayout>
+      </Modal>
+    </Container>
   )
 }
