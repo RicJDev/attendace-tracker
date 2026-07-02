@@ -9,6 +9,13 @@ config:
 ---
 
 erDiagram
+   ACADEMIC_PERIOD {
+      int id PK
+      string name
+      date start_date
+      date end_date
+   }
+
    TEACHER {
       int id PK
       string first_name
@@ -25,6 +32,7 @@ erDiagram
       string section_number
       int course_id FK
       int teacher_id FK
+      int period_id FK
    }
 
    STUDENT {
@@ -53,13 +61,16 @@ erDiagram
       date date
       string status
       datetime last_updated
-      int student_id FK
+      int section_student_id FK
+      int schedule_id FK
    }
 
+   ACADEMIC_PERIOD ||--o{ SECTION : "includes"
    COURSE ||--|{ SECTION : "has"
    TEACHER ||--o{ SECTION : "teaches"
    SECTION ||--o{ SECTION_STUDENT : "contains"
    SECTION_STUDENT }o--|| STUDENT : "enrolls"
    SECTION ||--|{ SCHEDULE : "follows"
-   STUDENT ||--o{ ATTENDANCE : "has"
+   SECTION_STUDENT ||--o{ ATTENDANCE : "has"
+   SCHEDULE ||--o{ ATTENDANCE : "registers"
 ```
