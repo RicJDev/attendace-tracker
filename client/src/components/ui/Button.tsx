@@ -16,7 +16,7 @@ export function Button({ variant = 'primary', ...rest }: ButtonProps) {
     case 'secondary':
       return (
         <button
-          className='bg-blue-900/30 border-blue-800/50 text-blue-300 font-bold hover:bg-blue-900/60'
+          className='bg-blue-900/30 border-blue-800 text-blue-200 font-bold hover:bg-blue-900/60'
           {...rest}
         />
       )
