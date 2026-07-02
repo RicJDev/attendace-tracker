@@ -11,13 +11,23 @@ export interface Course {
   sections: Section[]
 }
 
+export interface AcademicPeriod {
+  id: number
+  name: string
+  start_date: Date
+  end_date: Date
+  sections: Section[]
+}
+
 export interface Section {
   id: number
   section_number: string
   course_id: number
   teacher_id: number
+  period_id: number
   course: Course
   teacher: Teacher
+  period: AcademicPeriod
   schedules: Schedule[]
   sectionStudents: SectionStudent[]
 }
@@ -29,7 +39,6 @@ export interface Student {
   national_id: string
   list_number: number
   sectionStudents: SectionStudent[]
-  attendances: Attendance[]
 }
 
 export interface SectionStudent {
@@ -38,22 +47,26 @@ export interface SectionStudent {
   section_id: number
   student: Student
   section: Section
+  attendances: Attendance[]
 }
 
 export interface Schedule {
   id: number
   day_of_week: string
-  start_time: string // HH:MM:SS
-  end_time: string // HH:MM:SS
+  start_time: string
+  end_time: string
   section_id: number
   section: Section
+  attendances: Attendance[]
 }
 
 export interface Attendance {
   id: number
-  date: Date // almacenado como YYYY-MM-DD
+  date: Date
   status: string
   last_updated: Date
-  student_id: number
-  student: Student
+  section_student_id: number
+  schedule_id: number
+  sectionStudent: SectionStudent
+  schedule: Schedule
 }
