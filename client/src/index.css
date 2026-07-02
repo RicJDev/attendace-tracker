@@ -25,14 +25,13 @@
   }
 
   a {
-    text-decoration: underline;
     color: var(--color-blue-100);
     font-weight: var(--font-weight-bold);
-  }
 
-  a:hover {
-    color: var(--color-blue-300);
-    cursor: pointer;
+    &:hover {
+      color: var(--color-blue-300);
+      cursor: pointer;
+    }
   }
 
   button {
@@ -44,9 +43,9 @@
     height: fit-content;
     transition-duration: 150ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
 
-  button:active {
-    scale: 95%;
+    &:active {
+      scale: 95%;
+    }
   }
 }
