@@ -19,7 +19,7 @@ export function MainLayout() {
           <h3 className='text-3xl font-extrabold'>{titles[pathname] ?? 'Registro de asistencia'}</h3>
         </nav>
 
-        <main className='flex-1 flex flex-col'>
+        <main className='flex-1 flex flex-col justify-center items-center'>
           <Outlet />
         </main>
       </div>
